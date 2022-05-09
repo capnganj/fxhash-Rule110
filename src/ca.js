@@ -9,22 +9,46 @@ class CA {
         this.sk = p5ref;
         this.feet = features;
 
-        //110 homies
-        this.ruleset = [0, 1, 1, 0, 1, 1, 1, 0];
+        //110 and its cousins my homies:
+        let ca110 = [0, 1, 1, 0, 1, 1, 1, 0];
+        let ca124 = [0, 1, 1, 1, 1, 1, 0, 0];
+        let ca137 = [1, 0, 0, 0, 1, 0, 0, 1];
+        let ca193 = [1, 1, 0, 0, 0, 0, 0, 1];
+        switch (this.feet.rule) {
+            case 110:
+                this.ruleset = ca110
+                break;
+            case 124:
+                this.ruleset = ca124
+                break;
+            case 137:
+                this.ruleset = ca137
+                break;
+            case 193:
+                this.ruleset = ca193
+                break;    
+            default:
+                this.ruleset = ca110;
+        }
+        
 
         //width of each cell
         this.w = this.feet.cellWidth.value;
 
-        //Array of cells w/ random values
-        this.cells = new Array(parseInt(this.sk.width / this.w));
-        for (let i = 0; i < this.cells.length; i++) {
-            this.cells[i] = Math.round(fxrand());
+        //starting cells --- these are the seed code generated from the fxhash transaction and never change
+        this.seedCells = new Array(4096);
+        for (let i = 0; i < this.seedCells.length; i++) {
+            this.seedCells[i] = Math.round(fxrand());
         }
+
+        //Array of cells w/ random values
+        this.populateCellsUsingSeed();
 
         //generation
         this.generation = 0;
     }
 
+    //computes a new row of cells data
     generate() {
         let nextgen = [];
         for (var i = 0; i < this.cells.length; i++) {
@@ -38,8 +62,9 @@ class CA {
         }
         this.cells = nextgen;
         this.generation++;
-      }
+    }
 
+    //draws a row of cells
     draw() {
         for (var i = 0; i < this.cells.length; i++) {
             let go = this.randomGo();
@@ -51,6 +76,7 @@ class CA {
         }
     }
 
+    //picks random 1-value colors
     randomGo() {
         let go = fxrand();
         let col = {};
@@ -66,6 +92,7 @@ class CA {
         return col;
     }
 
+    //picks random 0-value colors
     randomStop() {
         let go = fxrand();
         let col = {};
@@ -81,6 +108,18 @@ class CA {
         return col;
     }
 
+    
+    //called when the screen size changes -- triggers something like a redraw
+    populateCellsUsingSeed() {
+        this.generation = 0;
+        let safeWidth = this.sk.width > 4096 ? 4096 : this.sk.width;
+        this.cells = new Array(Math.ceil(safeWidth / this.w));
+        for (let i = 0; i < this.cells.length; i++) {
+            this.cells[i] = this.seedCells[i];
+        }
+    }
+
+    //CA computation rules
     rules(a, b, c) {
         if (a == 1 && b == 1 && c == 1) return this.ruleset[0];
         if (a == 1 && b == 1 && c === 0) return this.ruleset[1];

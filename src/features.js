@@ -27,7 +27,9 @@ class Features {
         }
         this.setCellWidth();
         
-
+        //which CA rule?
+        this.rule = 110;
+        this.setRule();
     }
 
     //map function logic from processing <3
@@ -134,6 +136,7 @@ class Features {
         }
     }
 
+    //sets the cell width for the CA class
     setCellWidth() {
         let w = fxrand();
         if (w < 0.27) {
@@ -152,6 +155,23 @@ class Features {
             this.cellWidth.tag = "xxl";
         }
         this.cellWidth.value = this.map(w, 0, 1, 1.5, 4);
+    }
+
+    //chooses a rule for the CA class
+    setRule() {
+        let r = fxrand();
+        if (r < 0.37) {
+            this.rule = 110
+        }
+        else if(r < 0.71) {
+            this.rule = 124
+        }
+        else if (r < 0.87) {
+            this.rule = 137
+        }
+        else {
+            this.rule = 193
+        }
     }
 }
 

@@ -11,8 +11,6 @@ const s = ( sk ) => {
 
   //global sketch variables
   let oneTen = {};
-  let col = {};
-  let hyp = -1.0;
   let feet = {};
 
   //sketch setup
@@ -22,20 +20,15 @@ const s = ( sk ) => {
 
     //new featuresClass
     feet = new Features();
-    col = feet.interpolateFn(fxrand());
 
     //CA 
     oneTen = new CA(sk, feet);
-    //color drives palette
-    //depth drives number of recursive draw cloud layers
-    //cough drives initial circle radius size
-    //squint drives smallest circle radius size
-    //laugh drives how far the could spreads out from the center 
    
     // FX Features
     window.$fxhashFeatures = {
       "Palette" : feet.color.name,
-      "Cell Width": feet.cellWidth.tag,
+      "Cell Size": feet.cellWidth.tag,
+      "CA Rule": feet.rule.toString()
     };
     console.log("fxhashFeatures", window.$fxhashFeatures);
     //console.log("HashSmokeFeatures", feet);
@@ -44,17 +37,10 @@ const s = ( sk ) => {
 
   //sketch draw function 
   sk.draw = () => {
-
-    //TO DO - set the background color.  This should be a desaturated inverse color average of the colors in the d3 color scheme
-    //sk.background(0);
-    //sk.noStroke();
-    
-
     oneTen.draw();
     if (oneTen.generation < sk.height/oneTen.w) {
       oneTen.generate()
     }
-
   };
 
   
@@ -62,9 +48,11 @@ const s = ( sk ) => {
   //handle window resize
   sk.windowResized = () => {
     sk.resizeCanvas(sk.windowWidth, sk.windowHeight);
-    console.log("windowWidth", sk.windowWidth);
-    console.log("width", sk.width);
 
+    //redraw the CA -- 0 out the object's state and let it rip again
+    oneTen.populateCellsUsingSeed();
+    //console.log("windowWidth", sk.windowWidth);
+    //console.log("width", sk.width);
   };
 };
 
