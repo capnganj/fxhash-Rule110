@@ -20,32 +20,13 @@ class Features {
         this.setColorPalette();
         this.setColors();
 
-        //drives nummber of circles
-        this.depth = {
+        //drives cell width
+        this.cellWidth = {
             tag: "",
-            value: ""
+            value: 2.0
         }
-        this.setDepth();
-
-        //min and max initial radius multiplier
-        this.cough = {
-            tag: "",
-            value: ""
-        };
-        this.setCough();
-
-        //min and max radius factor in new branch
-        this.squint = {
-            tag: "",
-            value: ""
-        };
-
-        //spread factor
-        this.laugh =  {
-            tag: "",
-            value: ""
-        };
-        this.setSquintAndLaugh();
+        this.setCellWidth();
+        
 
     }
 
@@ -105,13 +86,6 @@ class Features {
         }
     }
 
-    //desaturate by some %
-    desaturateColor(col, percent) {
-        //let h = hsl(col);
-        //h -= percent;
-        return col.darker(percent);
-    }
-
     //set color palette globally
     setColorPalette() {
         let c = fxrand();
@@ -160,54 +134,24 @@ class Features {
         }
     }
 
-    setDepth(){
-        let t = fxrand();
-        this.depth.value = t;
-
-        //set feature tag value
-        if (t < 0.15) {
-            this.depth.tag = "Weak"
-            this.depth.value = 6
+    setCellWidth() {
+        let w = fxrand();
+        if (w < 0.27) {
+            this.cellWidth.tag = "s";
         }
-        else if ( t < 0.85) {
-            this.depth.tag = "Nice"
-            this.depth.value = 7
+        else if (w < 0.42) {
+            this.cellWidth.tag = "m";
+        }
+        else if (w < 0.59) {
+            this.cellWidth.tag = "l";
+        }
+        else if (w < 0.83) {
+            this.cellWidth.tag = "xl";
         }
         else {
-            this.depth.tag = "Huge"
-            this.depth.value = 8
+            this.cellWidth.tag = "xxl";
         }
-    }
-
-    setCough(){
-        let c = fxrand();
-        this.cough.value = c;
-
-        //set feature tag values
-        if (c < 0.4) this.cough.tag = "Smooth";
-        else if (c < 0.6) this.cough.tag = "Wheeze";
-        else if (c < 0.85) this.cough.tag = "Cough";
-        else this.cough.tag = "Hack"
-
-
-    }
-
-    setSquintAndLaugh(){
-        let s = fxrand();
-        let l = fxrand();
-        this.squint.value = s;
-        this.laugh.value = l;
-
-        //set feature tag values
-        if (s < 0.4) this.squint.tag = "None";
-        else if (s < 0.6) this.squint.tag = "Stoner Eyes";
-        else if (s < 0.85) this.squint.tag = "Squinty";
-        else this.squint.tag = "Eyes Closed"
-
-        if (l < 0.5) this.laugh.tag = "Chuckle";
-        else if (l < 0.75) this.laugh.tag = "Hearty";
-        else if (l < 0.9) this.laugh.tag = "Belly";
-        else this.laugh.tag = "Can't stop laughing";
+        this.cellWidth.value = this.map(w, 0, 1, 1.5, 4);
     }
 }
 

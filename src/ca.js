@@ -13,7 +13,7 @@ class CA {
         this.ruleset = [0, 1, 1, 0, 1, 1, 1, 0];
 
         //width of each cell
-        this.w = 5.5;
+        this.w = this.feet.cellWidth.value;
 
         //Array of cells w/ random values
         this.cells = new Array(parseInt(this.sk.width / this.w));

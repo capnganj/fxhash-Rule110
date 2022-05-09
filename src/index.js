@@ -34,13 +34,10 @@ const s = ( sk ) => {
    
     // FX Features
     window.$fxhashFeatures = {
-      "Depth" : feet.depth.tag,
       "Palette" : feet.color.name,
-      "Cough" : feet.cough.tag,
-      "Squint": feet.squint.tag,
-      "Laugh" : feet.laugh.tag
+      "Cell Width": feet.cellWidth.tag,
     };
-    //console.log("fxhashFeatures", window.$fxhashFeatures);
+    console.log("fxhashFeatures", window.$fxhashFeatures);
     //console.log("HashSmokeFeatures", feet);
   };
 
