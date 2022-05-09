@@ -16,7 +16,7 @@ const s = ( sk ) => {
   //sketch setup
   sk.setup = () => {
     sk.createCanvas(sk.windowWidth, sk.windowHeight);
-    sk.background(0);
+    
 
     //new featuresClass
     feet = new Features();
@@ -32,6 +32,10 @@ const s = ( sk ) => {
     };
     console.log("fxhashFeatures", window.$fxhashFeatures);
     //console.log("HashSmokeFeatures", feet);
+
+    //set the background color 
+    let col = feet.color.cero;
+    sk.background(col.r, col.g, col.b);
   };
 
 
