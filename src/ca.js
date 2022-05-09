@@ -10,26 +10,27 @@ class CA {
         this.feet = features;
 
         //110 and its cousins my homies:
-        let ca110 = [0, 1, 1, 0, 1, 1, 1, 0];
-        let ca124 = [0, 1, 1, 1, 1, 1, 0, 0];
-        let ca137 = [1, 0, 0, 0, 1, 0, 0, 1];
-        let ca193 = [1, 1, 0, 0, 0, 0, 0, 1];
+        let ca30 = [0, 0, 0, 1, 1, 1, 1, 0];
+        let ca86 = [0, 1, 0, 1, 0, 1, 1, 0];
+        let ca135 = [1, 0, 0, 0, 0, 1, 1, 1];
+        let ca149 = [1, 0, 0, 1, 0, 1, 0, 1];
         switch (this.feet.rule) {
-            case 110:
-                this.ruleset = ca110
+            case 30:
+                this.ruleset = ca30;
                 break;
-            case 124:
-                this.ruleset = ca124
+            case 86:
+                this.ruleset = ca86;
                 break;
-            case 137:
-                this.ruleset = ca137
+            case 135:
+                this.ruleset = ca135;
                 break;
-            case 193:
-                this.ruleset = ca193
+            case 149:
+                this.ruleset = ca149;
                 break;    
             default:
                 this.ruleset = ca110;
         }
+        //this.ruleset = ca30;
         
 
         //width of each cell
