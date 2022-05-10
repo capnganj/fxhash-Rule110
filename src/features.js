@@ -154,7 +154,7 @@ class Features {
         else {
             this.cellWidth.tag = "xxl";
         }
-        this.cellWidth.value = this.map(w, 0, 1, 1.5, 4);
+        this.cellWidth.value = this.map(w, 0, 1, 2, 4.5);
     }
 
     //chooses a rule for the CA class
