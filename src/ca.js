@@ -26,7 +26,7 @@ class CA {
         let ca150 = [1, 0, 0, 1, 0, 1, 1, 0];
         let ca165 = [1, 0, 1, 0, 0, 1, 0, 1];
         let ca105 = [0, 1, 1, 0, 1, 0, 0, 1];
-        
+
         switch (this.feet.rule) {
             case 30:
                 this.ruleset = ca30;
@@ -92,8 +92,8 @@ class CA {
     //computes a new row of cells data
     generate() {
         let nextgen = [];
-        for (var i = 0; i < this.cells.length; i++) {
-          nextgen[i] = 0;
+        for (var i = 0; i < this.cells.length + 1; i++) {
+          nextgen[i] = Math.round(fxrand());
         }
         for (let i = 1; i < this.cells.length-1; i++) {
           let left   = this.cells[i-1];   // Left neighbor state
