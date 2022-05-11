@@ -34,7 +34,20 @@ class CA {
                 break;
             case 193:
                 this.ruleset = ca193
-                break;    
+                break;
+                
+            case 106:
+                this.ruleset = ca106
+                break;
+            case 120:
+                this.ruleset = ca120
+                break;
+            case 169:
+                this.ruleset = ca169
+                break;
+            case 225:
+                this.ruleset = ca225
+                break;
             default:
                 this.ruleset = ca110;
         }
