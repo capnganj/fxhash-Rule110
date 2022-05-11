@@ -160,17 +160,35 @@ class Features {
     //chooses a rule for the CA class
     setRule() {
         let r = fxrand();
-        if (r < 0.37) {
+        if (r < 0.1) {
             this.rule = 110
         }
-        else if(r < 0.71) {
+        else if(r < 0.2) {
             this.rule = 124
         }
-        else if (r < 0.87) {
+        else if (r < 0.3) {
             this.rule = 137
         }
-        else {
+        else if (r < 0.4) {
             this.rule = 193
+        }
+        else if(r < 0.5) {
+            this.rule = 106
+        }
+        else if (r < 0.6) {
+            this.rule = 120
+        }
+        else if (r < 0.7) {
+            this.rule = 169
+        }
+        else if(r < 0.8) {
+            this.rule = 225
+        }
+        else if (r < 0.9) {
+            this.rule = 54
+        }
+        else {
+            this.rule = 147
         }
     }
 }

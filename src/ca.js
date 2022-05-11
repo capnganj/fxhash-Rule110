@@ -21,6 +21,9 @@ class CA {
         let ca169 = [1, 0, 1, 0, 1, 0, 0, 1];
         let ca225 = [1, 1, 1, 0, 0, 0, 0, 1];
 
+        //54 and 147
+        let ca54 = [0, 0, 1, 1, 0, 1, 1, 0];
+        let ca147 = [1, 0, 0, 1, 0, 0, 1, 1];
         
         switch (this.feet.rule) {
             case 110:
@@ -47,6 +50,13 @@ class CA {
                 break;
             case 225:
                 this.ruleset = ca225
+                break;
+                
+            case 54:
+                this.ruleset = ca54
+                break;
+            case 147:
+                this.ruleset = ca147
                 break;
             default:
                 this.ruleset = ca110;
