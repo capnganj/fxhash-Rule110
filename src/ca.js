@@ -85,7 +85,7 @@ class CA {
             col = this.feet.color.siete;
         }
         else {
-            col = this.feet.color.cinco;
+            col = this.feet.color.sies;
         }
         return col;
     }
