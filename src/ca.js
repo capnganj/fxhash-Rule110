@@ -14,6 +14,14 @@ class CA {
         let ca124 = [0, 1, 1, 1, 1, 1, 0, 0];
         let ca137 = [1, 0, 0, 0, 1, 0, 0, 1];
         let ca193 = [1, 1, 0, 0, 0, 0, 0, 1];
+
+        //106 and cousins
+        let ca106 = [0, 1, 1, 0, 1, 0, 1, 0];
+        let ca120 = [0, 1, 1, 1, 1, 0, 0, 0];
+        let ca169 = [1, 0, 1, 0, 1, 0, 0, 1];
+        let ca225 = [1, 1, 1, 0, 0, 0, 0, 1];
+
+        
         switch (this.feet.rule) {
             case 110:
                 this.ruleset = ca110
