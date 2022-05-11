@@ -16,12 +16,17 @@ class CA {
         let ca149 = [1, 0, 0, 1, 0, 1, 0, 1];
 
         //rule 45 and cousins
+        let ca45 = [0, 0, 1, 0, 1, 1, 0, 1];
+        let ca101 = [0, 1, 1, 0, 0, 1, 0, 1];
+        let ca75 = [0, 1, 0, 0, 1, 0, 1, 1];
+        let ca89 = [0, 1, 0, 1, 1, 0, 0, 1];
 
         //90 and cousins and 105
         let ca90 = [0, 1, 0, 1, 1, 0, 1, 0];
         let ca150 = [1, 0, 0, 1, 0, 1, 1, 0];
         let ca165 = [1, 0, 1, 0, 0, 1, 0, 1];
         let ca105 = [0, 1, 1, 0, 1, 0, 0, 1];
+        
         switch (this.feet.rule) {
             case 30:
                 this.ruleset = ca30;
@@ -34,9 +39,36 @@ class CA {
                 break;
             case 149:
                 this.ruleset = ca149;
-                break;    
+                break; 
+
+            case 45:
+                this.ruleset = ca45;
+                break;
+            case 101:
+                this.ruleset = ca101;
+                break;
+            case 75:
+                this.ruleset = ca75;
+                break;
+            case 89:
+                this.ruleset = ca89;
+                break;
+            
+            case 90:
+                this.ruleset = ca90;
+                break;
+            case 150:
+                this.ruleset = ca150;
+                break;
+            case 165:
+                this.ruleset = ca165;
+                break;
+            case 105:
+                this.ruleset = ca105;
+                break;
+            
             default:
-                this.ruleset = ca110;
+                this.ruleset = ca30;
         }
         //this.ruleset = ca30;
         
