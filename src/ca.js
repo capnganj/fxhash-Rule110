@@ -9,11 +9,19 @@ class CA {
         this.sk = p5ref;
         this.feet = features;
 
-        //110 and its cousins my homies:
+        //rule 30 and its cousins my homies:
         let ca30 = [0, 0, 0, 1, 1, 1, 1, 0];
         let ca86 = [0, 1, 0, 1, 0, 1, 1, 0];
         let ca135 = [1, 0, 0, 0, 0, 1, 1, 1];
         let ca149 = [1, 0, 0, 1, 0, 1, 0, 1];
+
+        //rule 45 and cousins
+
+        //90 and cousins and 105
+        let ca90 = [0, 1, 0, 1, 1, 0, 1, 0];
+        let ca150 = [1, 0, 0, 1, 0, 1, 1, 0];
+        let ca165 = [1, 0, 1, 0, 0, 1, 0, 1];
+        let ca105 = [0, 1, 1, 0, 1, 0, 0, 1];
         switch (this.feet.rule) {
             case 30:
                 this.ruleset = ca30;
