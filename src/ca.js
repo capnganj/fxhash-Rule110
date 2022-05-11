@@ -51,8 +51,8 @@ class CA {
     //computes a new row of cells data
     generate() {
         let nextgen = [];
-        for (var i = 0; i < this.cells.length; i++) {
-          nextgen[i] = 0;
+        for (var i = 0; i < this.cells.length+1; i++) {
+          nextgen[i] = Math.round(fxrand());
         }
         for (let i = 1; i < this.cells.length-1; i++) {
           let left   = this.cells[i-1];   // Left neighbor state
