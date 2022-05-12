@@ -12,6 +12,7 @@ const s = ( sk ) => {
   //global sketch variables
   let oneTen = {};
   let feet = {};
+  let previewed = false;
 
   //sketch setup
   sk.setup = () => {
@@ -44,6 +45,10 @@ const s = ( sk ) => {
     oneTen.draw();
     if (oneTen.generation < sk.height/oneTen.w) {
       oneTen.generate()
+    }
+    else if( previewed == false) {
+      fxpreview();
+      previewed = true;
     }
   };
 
