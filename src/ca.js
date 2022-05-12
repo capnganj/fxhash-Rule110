@@ -111,10 +111,10 @@ class CA {
     randomGo() {
         let go = fxrand();
         let col = {};
-        if (go < 0.33) {
+        if (go < 0.20) {
             col = this.feet.color.cinco;
         }
-        else if (go < 0.66) {
+        else if (go < 0.50) {
             col = this.feet.color.sies;
         }
         else {
@@ -127,10 +127,10 @@ class CA {
     randomStop() {
         let go = fxrand();
         let col = {};
-        if (go < 0.33) {
+        if (go < 0.50) {
             col = this.feet.color.cero;
         }
-        else if (go < 0.66) {
+        else if (go < 0.70) {
             col = this.feet.color.uno;
         }
         else {

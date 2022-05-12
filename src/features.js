@@ -154,37 +154,37 @@ class Features {
         else {
             this.cellWidth.tag = "xxl";
         }
-        this.cellWidth.value = this.map(w, 0, 1, 2.5, 4.5);
+        this.cellWidth.value = this.map(w, 0, 1, 3.5, 7);
     }
 
     //chooses a rule for the CA class
     setRule() {
         let r = fxrand();
-        if (r < 0.1) {
+        if (r < 0.27) {
             this.rule = 110
         }
-        else if(r < 0.2) {
+        else if(r < 0.37) {
             this.rule = 124
         }
-        else if (r < 0.3) {
+        else if (r < 0.51) {
             this.rule = 137
         }
-        else if (r < 0.4) {
+        else if (r < 0.66) {
             this.rule = 193
         }
-        else if(r < 0.5) {
+        else if(r < 0.71) {
             this.rule = 106
         }
-        else if (r < 0.6) {
+        else if (r < 0.77) {
             this.rule = 120
         }
-        else if (r < 0.7) {
+        else if (r < 0.83) {
             this.rule = 169
         }
-        else if(r < 0.8) {
+        else if(r < 0.87) {
             this.rule = 225
         }
-        else if (r < 0.9) {
+        else if (r < 0.95) {
             this.rule = 54
         }
         else {
